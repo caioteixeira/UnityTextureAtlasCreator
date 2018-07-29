@@ -12,7 +12,7 @@ A simple tool to easily combine materials on a single texture atlas and material
 * Select the GameObject that uses the materials that you want to combine. 
 
 ![](Screenshots/SelectObjects.PNG?raw=true)
-* Click on Window/TextureAtlasCreator to open the tool window, you can see all textures that can be combined on an atlas and also change the max size for the generated atlas.
+* Click on Window/TextureAtlasCreator to open the tool window, you can see all textures that can be combined on an atlas and also change the max size of the generated atlas.
 
 ![](Screenshots/CreateAtlasWindow.PNG?raw=true)
 
