@@ -12,7 +12,7 @@ A simple tool to easily combine materials on a single texture atlas and material
 * Select the GameObject that uses the materials that you want to combine. 
 
 ![](Screenshots/SelectObjects.PNG?raw=true)
-* Click on Window/TextureAtlasCreator to open the tool window, you can see all textures that can be combined on an atlas.
+* Click on Window/TextureAtlasCreator to open the tool window, you can see all textures that can be combined on an atlas and also change the max size for the generated atlas.
 
 ![](Screenshots/CreateAtlasWindow.PNG?raw=true)
 
@@ -21,5 +21,6 @@ A simple tool to easily combine materials on a single texture atlas and material
 ![](Screenshots/AtlasPreview.PNG?raw=true)
 
 ## Current issues
-* Only works with materials using Mobile/Diffuse shader
-* This tool can't handle meshes with UV maps outside of 0-1 range
+* Only works with materials using Mobile/Diffuse shader (actually, with a minor change it should work with any materials that uses a single texture material)
+* Can't handle meshes with UV maps outside of 0-1 range
+* Defining the atlas size could be somehow automatic
