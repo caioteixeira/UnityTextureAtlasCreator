@@ -8,10 +8,11 @@ A simple tool to easily combine materials on a single texture atlas and material
 * New UV's are created and applied on each selected mesh. Currently it is not saving the new meshes on assets, but it should be easy to do. :)
 
 ## How to use
+* Add the Editor folder to your project.
 * Select the GameObject that uses the materials that you want to combine. 
 
 ![](Screenshots/SelectObjects.PNG?raw=true)
-* Click on Window/TextureAtlasCreator, you will see the tool window, you can see all textures that can be combined on an atlas.
+* Click on Window/TextureAtlasCreator to open the tool window, you can see all textures that can be combined on an atlas.
 
 ![](Screenshots/CreateAtlasWindow.PNG?raw=true)
 
