@@ -5,7 +5,7 @@ A simple tool to easily combine materials on a single texture atlas and material
 ## How it works
 * All textures are combined on a texture atlas using [Unity's built-in PackTextures method](https://docs.unity3d.com/ScriptReference/Texture2D.PackTextures.html)
 * A new material that uses the texture atlas is created.
-* New UV's are created and applied on each selected mesh. Currently it is not saving the new meshes on assets, but it should be easy to do. :)
+* New UV's are calculated and applied to each selected mesh. Currently it is not saving the new meshes on assets, but it should be easy to do. :)
 
 ## How to use
 * Add the Editor folder to your project.
