@@ -27,20 +27,26 @@ namespace TextureAtlasCreator
         {
             meshFilters = new List<MeshFilter>();
             textures = new List<Texture2D>();
-            Selection.selectionChanged += UpdateSelection;
             UpdateSelection();
         }
 
-        private void OnDisable()
+        private void OnSelectionChange()
         {
-            Selection.selectionChanged -= UpdateSelection;
+            UpdateSelection();
         }
 
         private void OnGUI()
         {
             AtlasSizeDropdown();
+
+            if (textures.Count == 0)
+            {
+                EditorGUILayout.HelpBox(string.Format("Can't find any material using {0} shader on selected objects", 
+                    shaderName), MessageType.Error);
+                return;
+            }
             
-            GUILayout.Label("Textures in selected meshes: ");
+            GUILayout.Label("Textures in selected meshes: ", EditorStyles.boldLabel);
             foreach (var texture in textures)
             {
                 GUILayout.Label(texture.name);
