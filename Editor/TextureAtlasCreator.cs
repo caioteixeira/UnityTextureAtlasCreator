@@ -14,7 +14,7 @@ namespace TextureAtlasCreator
         private Dictionary<MeshRenderer, int> rendererToTextureIndex;
         
         private string shaderName = "Mobile/Diffuse";
-        private int atlasSize = 2048;
+        private int maxAtlasSize = 2048;
 
         [MenuItem("Window/TextureAtlasCreator")]
         private static void Init()
@@ -28,6 +28,7 @@ namespace TextureAtlasCreator
             meshFilters = new List<MeshFilter>();
             textures = new List<Texture2D>();
             Selection.selectionChanged += UpdateSelection;
+            UpdateSelection();
         }
 
         private void OnDisable()
@@ -58,8 +59,8 @@ namespace TextureAtlasCreator
 
         private void AtlasSizeDropdown()
         {
-            atlasSize = EditorGUILayout.IntPopup("Atlas Size", 
-                atlasSize, new[] {"256", "512", "1024", "2048", "4096", "8192"},
+            maxAtlasSize = EditorGUILayout.IntPopup("Max Atlas Size", 
+                maxAtlasSize, new[] {"256", "512", "1024", "2048", "4096", "8192"},
                 new[] {256, 512, 1024, 2048, 4096, 8192});
         }
 
@@ -132,7 +133,7 @@ namespace TextureAtlasCreator
 
         private Texture2D PackTextures(out Rect[] uvs)
         {
-            var atlas = new Texture2D(atlasSize, atlasSize);
+            var atlas = new Texture2D(maxAtlasSize, maxAtlasSize);
 
             foreach (var texture in textures)
             {
@@ -141,7 +142,7 @@ namespace TextureAtlasCreator
         
             AssetDatabase.Refresh();
 
-            uvs = atlas.PackTextures(textures.ToArray(), 2, atlasSize);
+            uvs = atlas.PackTextures(textures.ToArray(), 2, maxAtlasSize);
 
             var uncompressedAtlas = new Texture2D(atlas.width, atlas.height);
             uncompressedAtlas.SetPixels(atlas.GetPixels());
