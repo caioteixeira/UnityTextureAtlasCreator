@@ -37,13 +37,15 @@ namespace TextureAtlasCreator
 
         private void OnGUI()
         {
+            AtlasSizeDropdown();
+            
             GUILayout.Label("Textures in selected meshes: ");
             foreach (var texture in textures)
             {
                 GUILayout.Label(texture.name);
             }
         
-            if (GUILayout.Button("Pack Textures"))
+            if (GUILayout.Button("CreateTextureAtlas"))
             {
                 Rect[] newUvs;
                 atlasAsset = PackTextures(out newUvs);
@@ -52,6 +54,13 @@ namespace TextureAtlasCreator
                 
                 AtlasTexturePreview.Init(atlasAsset);
             }
+        }
+
+        private void AtlasSizeDropdown()
+        {
+            atlasSize = EditorGUILayout.IntPopup("Atlas Size", 
+                atlasSize, new[] {"256", "512", "1024", "2048", "4096", "8192"},
+                new[] {256, 512, 1024, 2048, 4096, 8192});
         }
 
         private void UpdateSelection()
